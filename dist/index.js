@@ -13904,12 +13904,12 @@ var github = __nccwpck_require__(5438);
 ;// CONCATENATED MODULE: ./src/inputs.js
 // eslint-disable-next-line import/prefer-default-export
 function getAllInput(core, github) {
-  const environmentAppKey = core.getInput('ENVIRONMENT_APP_KEY');
-  const apiKey = core.getInput('API_KEY');
-  const appPath = core.getInput('APP');
-  const releaseNotes = core.getInput('RELEASE_NOTES');
-  const buildType = core.getInput('BUILD_TYPE') || 'GitHub Actions';
-  const bundleVersion = core.getInput('BUNDLE_VERSION');
+  const environmentAppKey = core.getInput('environment-app-key');
+  const apiKey = core.getInput('api-key');
+  const appPath = core.getInput('app');
+  const releaseNotes = core.getInput('release-notes');
+  const buildType = core.getInput('build-type') || 'GitHub Actions';
+  const bundleVersion = core.getInput('bundle-version');
 
   const payload = github.context.payload;
   const gitCommitHash = payload.head_commit.id;
