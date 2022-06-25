@@ -16056,11 +16056,18 @@ async function upload(input) {
     form.append('repository_url', input.repository);
     form.append('build_type', input.buildType);
 
-    await fetch(`https://getupdraft.com/api/app_upload/${input.environmentAppKey}/${input.apiKey}/`, {
+    let response = await fetch(`https://getupdraft.com/api/app_upload/${input.environmentAppKey}/${input.apiKey}/`, {
         method: 'PUT',
         body: form,
         "Content-Type": "multipart/form-data"
     });
+
+    if (!response.ok) {
+        const err = await response.json();
+        if (!err.status) { err.status = 'none'; }
+        if (!err.error_text) { err.error_text = 'none'; }
+        throw new Error(`An error occurred...\nHTTP Status: ${response.status} - ${response.statusText}.\nStatus Message: ${err.status}\nError Text: ${err.error_text}`);
+    }
 }
 ;// CONCATENATED MODULE: ./src/action.js
 
