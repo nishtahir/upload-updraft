@@ -1,6 +1,9 @@
 name: 'Upload Updraft'
 description: 'Upload artifacts to updraft app distribuion service'
 author: 'Nish Tahir'
+branding:
+  icon: 'upload-cloud'
+  color: 'green'
 inputs:
   environment-app-key:
     description: 'Environment app key'
