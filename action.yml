@@ -1,0 +1,25 @@
+name: 'Upload Updraft'
+description: 'Upload artifacts to updraft app distribuion service'
+author: 'Nish Tahir'
+inputs:
+  environment-app-key:
+    description: 'Environment app key'
+    required: true
+  api-key:
+    description: 'Api key for upload'
+    required: true
+  app:
+    description: 'Path to artifact for upload'
+    required: true
+  release-notes:
+    description: 'Additional release notes'
+    required: false  
+  build-type:
+    description: 'Type of assembled artifact'
+    required: false
+  bundle-version:
+    description: ''
+    required: false
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
